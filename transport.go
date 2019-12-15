@@ -51,6 +51,7 @@ var DefaultTransport = func(secure bool) (http.RoundTripper, error) {
 		// Refer:
 		//    https://golang.org/src/net/http/transport.go?h=roundTrip#L1843
 		DisableCompression: true,
+		TLSClientConfig:    &tls.Config{InsecureSkipVerify: true},
 	}
 
 	if secure {
